@@ -303,3 +303,7 @@ uniform缓冲对象比单独的uniform有很多好处。
 第一，一次设置多个uniform比一次设置一个速度快。
 第二，如果你打算改变一个横跨多个着色器的uniform，在uniform缓冲中只需更改一次。
 最后一个好处可能不是很明显，使用uniform缓冲对象你可以在着色器中使用更多的uniform。OpenGL有一个对可使用uniform数据的数量的限制，可以用GL_MAX_VERTEX_UNIFORM_COMPONENTS来获取。当使用uniform缓冲对象中，这个限制的阈限会更高。所以无论何时，你达到了uniform的最大使用数量（比如做骨骼动画的时候），你可以使用uniform缓冲对象。
+
+---
+> 参考
+[LearnOpenGL-CN 高级GLSL](http://learnopengl-cn.readthedocs.org/zh/latest/04%20Advanced%20OpenGL/08%20Advanced%20GLSL/)
