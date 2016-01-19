@@ -2,7 +2,7 @@
 layout: post
 title: 矩阵 Matrix 简介
 description: "矩阵 相关数学知识"
-modified: 2015-10-10
+modified: 2015-09-10
 tags: [OpenGL, Math]
 ---
 
@@ -14,7 +14,7 @@ tags: [OpenGL, Math]
 一个r × c矩阵有r 行 c列。
 矩阵通常用大写字母表示。需要引用分量时使用下标法，如下3 × 3矩阵：
 
-![]({{ site.url }}/images/post/2015-10-10/Matrix-1.png)
+![]({{ site.url }}/images/post/2015-09-10/Matrix-1.png)
 
 ##方阵：
 行数和列数相同的矩阵称为方阵(Square Matrix)。
@@ -23,7 +23,7 @@ tags: [OpenGL, Math]
 **对角矩阵(Diagonal Matrix)**：所有非对角元素都是0的矩阵。
 **单位矩阵(Identity Matrix)**：对角线矩阵为1，其他元素为0。n维单位矩阵记为In 。
 
-![]({{ site.url }}/images/post/2015-10-10/Matrix-2.png)
+![]({{ site.url }}/images/post/2015-09-10/Matrix-2.png)
 
 ##向量作为矩阵：
 n维行向量可视作1 × n矩阵，n维列向量视为n × 1矩阵。
@@ -32,25 +32,25 @@ n维行向量可视作1 × n矩阵，n维列向量视为n × 1矩阵。
 把矩阵A的行换成相应的列，得到的新矩阵称为A的**转置矩阵(Transpose Matrix)**，记作A<sup>T</sup>。
 一个r × c矩阵的转置矩阵是一个c × r矩阵。
 
-![]({{ site.url }}/images/post/2015-10-10/Matrix-3.png)
+![]({{ site.url }}/images/post/2015-09-10/Matrix-3.png)
 
 行向量转置变成列向量，列向量转置变成行向量。转置记法常用于书写列向量：[1, 2, 3]<sup>T</sup> 。
 
 运算律：
 
-![]({{ site.url }}/images/post/2015-10-10/Matrix-4.png)
+![]({{ site.url }}/images/post/2015-09-10/Matrix-4.png)
 
 ##矩阵加减法：
 
 ####矩阵与标量加减：
 标量值与矩阵每一个元素运算:
 
-![]({{ site.url }}/images/post/2015-10-10/Matrix-5.png)
+![]({{ site.url }}/images/post/2015-09-10/Matrix-5.png)
 
 ####矩阵与同型矩阵加减：
 矩阵只能与同型矩阵（行数与列数相等）加减，就是两个矩阵对应元素的加减运算：
 
-![]({{ site.url }}/images/post/2015-10-10/Matrix-6.png)
+![]({{ site.url }}/images/post/2015-09-10/Matrix-6.png)
 	
 ##矩阵乘法:
 
@@ -58,7 +58,7 @@ n维行向量可视作1 × n矩阵，n维列向量视为n × 1矩阵。
 
 矩阵的每一个元素分别乘以该标量：
 	
-![]({{ site.url }}/images/post/2015-10-10/Matrix-7.png)
+![]({{ site.url }}/images/post/2015-09-10/Matrix-7.png)
 
 矩阵加减法满足交换律、结合律。
 
@@ -66,11 +66,11 @@ n维行向量可视作1 × n矩阵，n维列向量视为n × 1矩阵。
 
 一个 r × n 矩阵乘以一个 n × c 矩阵，会得到一个 r × c 矩阵。
 	
-![]({{ site.url }}/images/post/2015-10-10/Matrix-8.png)
+![]({{ site.url }}/images/post/2015-09-10/Matrix-8.png)
 
 即取A的第 i 行和B的第 j 列，将行和列对应的元素相乘，然后结果相加：
 	
-![]({{ site.url }}/images/post/2015-10-10/Matrix-9.png)
+![]({{ site.url }}/images/post/2015-09-10/Matrix-9.png)
 	
 注意：
 
@@ -82,28 +82,28 @@ n维行向量可视作1 × n矩阵，n维列向量视为n × 1矩阵。
 		
 ####向量与矩阵相乘：
 	
-![]({{ site.url }}/images/post/2015-10-10/Matrix-10.png)	
-![]({{ site.url }}/images/post/2015-10-10/Matrix-11.png)	
+![]({{ site.url }}/images/post/2015-09-10/Matrix-10.png)	
+![]({{ site.url }}/images/post/2015-09-10/Matrix-11.png)	
         
 ##矩阵的几何解释：
 矩阵是线性变换的便利表达法。
 一般来说，任意向量v都可扩展为：
 
-![]({{ site.url }}/images/post/2015-10-10/Matrix-12.png)	
+![]({{ site.url }}/images/post/2015-09-10/Matrix-12.png)	
 
 右边的单位向量就是x、y、z轴，由此也可知：向量的每个坐标都表明了平行于相应坐标轴的有向位移。
 分别用p，g，r定义为+x，+y，+z方向的单位向量，则有：
 
-![]({{ site.url }}/images/post/2015-10-10/Matrix-13.png)	
+![]({{ site.url }}/images/post/2015-09-10/Matrix-13.png)	
 
 向量p，g，r称为基向量，一个坐标系能用任意三个线性无关（即不在同一平面）的基向量表示。
 用p，g，r构建一个矩阵M：
 
-![]({{ site.url }}/images/post/2015-10-10/Matrix-14.png)	
+![]({{ site.url }}/images/post/2015-09-10/Matrix-14.png)	
 
 用一个向量乘以该矩阵，仍能得到
 
-![]({{ site.url }}/images/post/2015-10-10/Matrix-15.png)
+![]({{ site.url }}/images/post/2015-09-10/Matrix-15.png)
 	
 可知：**如果把矩阵的行解释为坐标系的基向量，那么乘以该矩阵就相当于做了一次坐标转换。**
 
@@ -122,19 +122,19 @@ n维行向量可视作1 × n矩阵，n维列向量视为n × 1矩阵。
 
 1. 将一个物体顺时针旋转20°，意味着旋转物体上所有的点，这些点将被移动到一个新的位置，使用的同一个坐标系描述变换前后的位置。如图：
 
-    ![]({{ site.url }}/images/post/2015-10-10/Matrix-16.png)
+    ![]({{ site.url }}/images/post/2015-09-10/Matrix-16.png)
 
 2. 将坐标系顺时针旋转20°，此时物体的点并没有移动，我们只是在另外一个坐标系中描述它的位置。如图：
 
-    ![]({{ site.url }}/images/post/2015-10-10/Matrix-17.png)    可见，两种变换是等价的。将物体变换一个量等价于将坐标系变换一个相反的量。一般来说，变换物体相当于以相反的量变换描述这个物体的坐标系。当有多个变换，则需要以相反的顺序变换相反的量。
+    ![]({{ site.url }}/images/post/2015-09-10/Matrix-17.png)    可见，两种变换是等价的。将物体变换一个量等价于将坐标系变换一个相反的量。一般来说，变换物体相当于以相反的量变换描述这个物体的坐标系。当有多个变换，则需要以相反的顺序变换相反的量。
 
 ####旋转：
 
 * 2D中绕坐标中心旋转：
-    ![]({{ site.url }}/images/post/2015-10-10/Matrix-18.png)
+    ![]({{ site.url }}/images/post/2015-09-10/Matrix-18.png)
     
 * 3D中绕坐标轴旋转：
-    ![]({{ site.url }}/images/post/2015-10-10/Matrix-19.png)    
+    ![]({{ site.url }}/images/post/2015-09-10/Matrix-19.png)    
     利用旋转矩阵我们可以把我们的位置向量(Position Vectors)沿一个或多个轴进行旋转。也可以把多个矩阵结合起来，比如先沿着X轴旋转再沿着Y轴旋转。但是这会很快导致一个问题——万向节死锁(Gimbal Lock)。
     避免万向节死锁的真正解决方案是使用四元数(Quaternion)，它不仅安全，而且计算更加友好。
     
@@ -145,13 +145,13 @@ n维行向量可视作1 × n矩阵，n维列向量视为n × 1矩阵。
 
 3D沿坐标轴缩放矩阵：
 
-![]({{ site.url }}/images/post/2015-10-10/Matrix-20.png)
+![]({{ site.url }}/images/post/2015-09-10/Matrix-20.png)
 
 ####平移：
 平移(Translation)是在原来向量的基础上加上另一个的向量从而获得一个在不同位置的新向量的过程，这样就基于平移向量移动(Move)了向量。
 如果我们把平移向量表示为(Tx, Ty, Tz)，我们就能把平移矩阵定义为:
 
-![]({{ site.url }}/images/post/2015-10-10/Matrix-21.png)
+![]({{ site.url }}/images/post/2015-09-10/Matrix-21.png)
 
 此时我们是用了4x4矩阵，因为所有的平移值都要乘以向量的w列，所以平移值会加到向量的原始坐标上，使用3x3就无法实现了。
 
@@ -164,7 +164,7 @@ n维行向量可视作1 × n矩阵，n维列向量视为n × 1矩阵。
 根据矩阵的乘法，我们可以把多个变换组合到一个矩阵中。这个新矩阵代表依次执行原变换的累加效果。
 如我们有一个顶点(x, y, z)，我们希望将其缩放2倍，然后用位移(1, 2, 3)来平移它。我们需要一个平移和缩放矩阵来完成这些变换。结果的变换矩阵看起来像这样：
 
-![]({{ site.url }}/images/post/2015-10-10/Matrix-22.png)
+![]({{ site.url }}/images/post/2015-09-10/Matrix-22.png)
 
 注意，当矩阵相乘时我们先写平移再写缩放变换的。建议您在组合矩阵时，先进行缩放操作，然后是旋转，最后才是平移，否则它们会(消极地)互相影响（乘法的顺序是从右往左）。
 

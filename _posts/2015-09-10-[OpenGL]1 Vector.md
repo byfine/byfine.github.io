@@ -2,7 +2,7 @@
 layout: post
 title: 向量Vector 简介
 description: "向量Vector相关数学知识"
-modified: 2015-10-10
+modified: 2015-09-10
 tags: [OpenGL, Math]
 ---
 
@@ -28,23 +28,23 @@ tags: [OpenGL, Math]
 
 加法：
 
-![]({{ site.url }}/images/post/2015-10-10/Vector-1.png)
+![]({{ site.url }}/images/post/2015-09-10/Vector-1.png)
 
 减法：
 
-![]({{ site.url }}/images/post/2015-10-10/Vector-2.png)
+![]({{ site.url }}/images/post/2015-09-10/Vector-2.png)
    
 
 ####向量模长：
 利用勾股定理(Pythagoras Theorem)来获取向量的长度：
 
-![123]({{ site.url }}/images/post/2015-10-10/Vector-3.png)
+![123]({{ site.url }}/images/post/2015-09-10/Vector-3.png)
 
 ####标准化向量：
 即单位向量(Unit Vector)，或“法线”。单位向量就是长度为1的向量。
 可以用任意向量的每个分量除以向量的长度得到它的单位向量：
 
-![]({{ site.url }}/images/post/2015-10-10/Vector-4.png)
+![]({{ site.url }}/images/post/2015-09-10/Vector-4.png)
 
 ####距离公式：
 两点间的距离即从一个点到另一个点的向量的长度。
@@ -55,17 +55,17 @@ tags: [OpenGL, Math]
 点乘也称为内积。点乘结果是标量，并且满足交换律。
 向量点乘就是对应分量乘积的和。
 
-![]({{ site.url }}/images/post/2015-10-10/Vector-5.png)
+![]({{ site.url }}/images/post/2015-09-10/Vector-5.png)
 
 几何解释：
 点乘结果描述了两个向量的“相似”程度，点乘结果越大，两向量越相近。
 点乘等于向量大小与向量夹角的cos值的乘积：
 
-![]({{ site.url }}/images/post/2015-10-10/Vector-6.png)
+![]({{ site.url }}/images/post/2015-09-10/Vector-6.png)
 
 如果两个向量都是单位向量，则点乘只与夹角有关：
 
-![]({{ site.url }}/images/post/2015-10-10/Vector-7.png)
+![]({{ site.url }}/images/post/2015-09-10/Vector-7.png)
 
 从而很容易知道两个向量的方向关系，如是否正交(Orthogonal)或平行：
 
@@ -79,15 +79,15 @@ tags: [OpenGL, Math]
 ####向量投影：
 有两个向量v和u，假设u在v上的投影向量是u'。
 
-![]({{ site.url }}/images/post/2015-10-10/Vector-8.png)
+![]({{ site.url }}/images/post/2015-09-10/Vector-8.png)
 
 因为u' 和 v 是同方向的，可以得到：
 
-![]({{ site.url }}/images/post/2015-10-10/Vector-9.png)
+![]({{ site.url }}/images/post/2015-09-10/Vector-9.png)
 
 综合以上公式可得：
 
-![]({{ site.url }}/images/post/2015-10-10/Vector-10.png)
+![]({{ site.url }}/images/post/2015-09-10/Vector-10.png)
 
 即最终的投影向量。
 
@@ -95,29 +95,29 @@ tags: [OpenGL, Math]
 与点乘不同，向量叉乘得到一个向量，并且不满足交换律。
 公式：
 
-![]({{ site.url }}/images/post/2015-10-10/Vector-11.png)
+![]({{ site.url }}/images/post/2015-09-10/Vector-11.png)
 
 叉乘和点乘在一起运算时，叉乘优先计算：
 
-![]({{ site.url }}/images/post/2015-10-10/Vector-12.png)
+![]({{ site.url }}/images/post/2015-09-10/Vector-12.png)
 
 该运算称为三重积。
 
 几何意义：
 叉乘只在3D空间有定义，两个不平行的向量叉乘，会得到正交于两个向量的第三个向量。
 
-![]({{ site.url }}/images/post/2015-10-10/Vector-13.png)
+![]({{ site.url }}/images/post/2015-09-10/Vector-13.png)
 
 axb的长度等于向量长度与向量夹角sin值的乘积：
 
-![]({{ site.url }}/images/post/2015-10-10/Vector-14.png)
+![]({{ site.url }}/images/post/2015-09-10/Vector-14.png)
 
 可知axb的长度也等于以a和b向量构成的平行四边形的面积：
 
-![]({{ site.url }}/images/post/2015-10-10/Vector-15.png)
+![]({{ site.url }}/images/post/2015-09-10/Vector-15.png)
 
 注意：
 已知axb垂直于a、b。但是垂直于a、b有两个方向，如何确定呢？
 可以通过将a的头与b的尾相接，查看a到b是顺时针还是逆时针。在左手坐标系，如果是顺时针，则指向自己一侧，逆时针则远离自己一侧。
 
-![]({{ site.url }}/images/post/2015-10-10/Vector-16.png)
+![]({{ site.url }}/images/post/2015-09-10/Vector-16.png)
