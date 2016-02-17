@@ -8,17 +8,17 @@ tags: [OpenGL]
 
 我们会讨论一些内建变量、组织着色器输入和输出的新方式以及一个叫做uniform缓冲对象的非常有用的工具。
 
-##GLSL的内建变量：
+## GLSL的内建变量：
 着色器是很小的，如果我们需要从当前着色器以外的别的资源里的数据，那么我们就不得不传给它。我们学过了使用顶点属性(vertex attributes)、uniform和采样器(samplers)可以实现这个目标。GLSL有几个以gl_为前缀的变量，使我们有一个额外的手段来获取和写入数据。其中两个我们已经打过交道了：gl_Position和gl_FragCoord，前一个是顶点着色器的输出向量，后一个是片段着色器的。
 
 下面介绍几个有趣的GLSL内建变量，如果你想看到所有的内建变量最好去查看OpenGL的[wiki](http://www.opengl.org/wiki/Built-in_Variable_(GLSL))。
 
-###顶点着色器变量
+### 顶点着色器变量
 	
-####gl_Position
+#### gl_Position
 我们已经了解gl_Position是顶点着色器裁切空间输出的位置向量。如果你想让屏幕上渲染出东西gl_Position必须被使用。否则我们什么都看不到。
 	
-####gl_PointSize
+#### gl_PointSize
 我们可以使用的一种基本图形(primitive)是GL_POINTS，每个顶点(vertex)作为一个基本图形，被渲染为一个点(point)。可以使用glPointSize函数来设置这个点的大小，但我们还可以在顶点着色器里修改点的大小。
 	
 GLSL有一个输出变量叫做gl_PointSize，它是一个float变量，你可以以像素的方式设置点的高度和宽度。它在着色器中描述每个顶点做为点被绘制出来的大小。
@@ -27,15 +27,15 @@ GLSL有一个输出变量叫做gl_PointSize，它是一个float变量，你可�
 	
 想象一下，每个顶点表示出来的点的大小的不同，如果用在像粒子生成之类的技术里会挺有意思的。
 	
-####gl_VertexID
+#### gl_VertexID
 gl_Position和gl_PointSize都是输出变量，它们的值是作为顶点着色器的输出被读取的；通过向它们写入数据可以影响结果。
 顶点着色器也为我们提供了一个有趣的输入变量，我们只能从它那里读取，这个变量叫做gl_VertexID。
 	
 gl_VertexID是个整型变量，它储存着我们绘制的当前顶点的ID。当进行索引渲染（indexed rendering，使用glDrawElements渲染）时，这个变量保存着当前绘制的顶点的索引。当用的不是索引绘制（glDrawArrays）时，这个变量保存的是从渲染开始起直到当前处理顶点的编号。
 	
-###片段着色器的变量
+### 片段着色器的变量
 	
-####gl_FragCoord	
+#### gl_FragCoord	
 它是片段着色器的输入变量，类型为vec4向量。
 在讨论深度测试时，我们已经了解到，gl_FragCoord向量的z元素和特定的fragment的深度值相等。然而，我们也可以使用这个向量的x和y元素来实现一些有趣的效果。
 	
@@ -51,7 +51,7 @@ gl_FragCoord的x和y元素是当前片段的窗口空间坐标（window-space co
 	        color = vec4(0.0f, 1.0f, 0.0f, 1.0f);
 	}
 	
-####gl_FrontFacing
+#### gl_FrontFacing
 片段着色器另一个有意思的输入变量是gl_FrontFacing变量。在面剔除教程中，我们提到过OpenGL可以根据顶点绘制顺序弄清楚一个面是正面还是背面。gl_FrontFacing变量能告诉我们当前三角形图元是正面的还是背面的。然后我们可以决定做一些事情，比如为正面计算出不同的颜色。
 	
 gl_FrontFacing变量是一个布尔值，如果当前片段是正面的一部分那么就是true，否则就是false。这样我们可以创建一个立方体，里面和外面使用不同的纹理：
@@ -73,7 +73,7 @@ gl_FrontFacing变量是一个布尔值，如果当前片段是正面的一部分
 	
 注意，如果你开启了面剔除，你就看不到箱子里面有任何东西了，所以此时使用gl_FrontFacing就没有意义了。
 
-####gl_FragDepth
+#### gl_FragDepth
 输入变量gl_FragCoord让我们可以读得当前片段的窗口空间坐标和深度值，但是它是只读的。我们不能影响到这个片段的窗口屏幕坐标，但是可以设置这个像素的深度值。GLSL给我们提供了一个叫做gl_FragDepth的变量，我们可以用它在着色器中设置像素的深度值。
 	
 	gl_FragDepth = 0.0f; //现在片段的深度值被设为0
@@ -115,7 +115,7 @@ condition可以使用下面的值：
 这个功能只在OpenGL4.2以上版本才有。
 	
 	
-##接口块(Interface blocks)：
+## 接口块(Interface blocks)：
 到目前位置，每次我们打算从顶点向片段着色器发送数据，我们都会声明一个相互匹配的输出/输入变量。从一个着色器向另一个着色器发送数据，一次将它们声明好是最简单的方式，但是随着应用变得越来越大，你也许会打算发送的不仅仅是变量，最好还可以包括数组和结构体。
 
 为了帮助我们组织这些变量，GLSL为我们提供了一些叫做接口块(Interface blocks)的东西，好让我们能够组织这些变量。声明接口块和声明struct有点像，不同之处是它现在基于块（block），使用in和out关键字来声明，最后它将成为一个输入或输出块（block）。
@@ -160,7 +160,7 @@ condition可以使用下面的值：
 
 如果两个interface block名一致，它们对应的输入和输出就会匹配起来。这是另一个可以帮助我们组织代码的有用功能，特别是在跨着色阶段的情况，比如几何着色器。
 
-##uniform缓冲对象 (Uniform buffer objects)：
+## uniform缓冲对象 (Uniform buffer objects)：
 目前为止，当我们时用一个以上的着色器的时候，我们必须一次次设置uniform变量，尽管对于每个着色器来说它们都是一样的。所以为什么还麻烦地多次设置它们呢？
 
 OpenGL为我们提供了一个叫做uniform缓冲对象的工具，使我们能够声明一系列的全局uniform变量， 它们会在几个着色器程序中保持一致。当使用uniform缓冲的对象时相关的uniform只能设置一次。我们仍需为每个着色器手工设置唯一的uniform。创建和配置一个uniform缓冲对象需要费点功夫。
@@ -189,7 +189,7 @@ OpenGL为我们提供了一个叫做uniform缓冲对象的工具，使我们能�
 
 现在你可能会奇怪layout(std140)是什么意思。它的意思是说当前定义的uniform块为它的内容使用特定的内存布局，这个声明实际上是设置uniform块布局(uniform block layout)。
 
-##uniform块布局(uniform block layout)：
+## uniform块布局(uniform block layout)：
 一个uniform块的内容被储存到一个缓冲对象中，实际上就是在一块内存中。因为这块内存也不清楚它保存着什么类型的数据，我们就必须告诉OpenGL哪一块内存对应着色器中哪一个uniform变量。
 
 假想下面的uniform块在一个着色器中：
@@ -250,7 +250,7 @@ GLSL 默认使用的uniform内存布局叫做共享布局(shared layout)，因�
 在定义uniform块前面添加layout (std140)声明，我们就能告诉OpenGL这个uniform块使用了std140布局。另外还有两种其他的布局可以选择，它们需要我们在填充缓冲之前查询每个偏移量。我们已经了解了分享布局（shared layout）和其他的布局都将被封装（packed）。当使用封装（packed）布局的时候，不能保证布局在别的程序中能够保持一致，因为它允许编译器从uniform块中优化出去uniform变量，这在每个着色器中都可能不同。
 
 
-##使用uniform缓冲：
+## 使用uniform缓冲：
 我们讨论了uniform块在着色器中的定义和如何定义它们的内存布局，但是我们还没有讨论如何使用它们。
 
 首先我们需要创建一个uniform缓冲对象，这要使用glGenBuffers来完成。当我们拥有了一个缓冲对象，我们就把它绑定到GL_UNIFORM_BUFFER目标上，调用glBufferData来给它分配足够的空间。

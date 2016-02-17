@@ -12,10 +12,10 @@ tags: [OpenGL]
  
 常见的第三方库GLUT，SDL，SFML，GLFW，GLEW等等。之前也介绍过了FreeGLUT和GLEW的安装方法。各个第三方库的使用方法都差不多，从它们官网上下头文件、Lib文件等等，放项目里设置好依赖关系。具体的可以参考[这篇教程](http://learnopengl-cn.readthedocs.org/zh/latest/01%20Getting%20started/02%20Creating%20a%20window/)。
  
-###GLFW
+### GLFW
 GLFW是一个专门针对OpenGL的C语言库，它提供了一些渲染物件所需的最低限度的接口。它允许用户创建OpenGL上下文，定义窗口参数以及处理用户输入。
  
-###GLEW
+### GLEW
 因为OpenGL只是一个规范，具体的实现是由驱动开发商针对特定显卡实现的。由于显卡驱动版本众多，大多数函数都无法在编译时确定下来，需要在运行时获取。开发者需要运行时获取函数地址并保存下来供以后使用。Windows下类似这样：
 
 {% highlight C++ %}
@@ -30,11 +30,11 @@ glGenBuffers(1, &buffer);
 
 对于每个函数都必须这样，简直无情。幸运的是，有一个针对此目的的库，GLEW，是目前最流行的做这件事的方式。
  
-###创建窗口
+### 创建窗口
 配置好GLFW和GLEW后，就可以开始创建我们的第一个程序了。VS新建项目啥的就不说了。
 下面只是大概介绍，具体内容可以参考[这里](http://learnopengl-cn.readthedocs.org/zh/latest/01%20Getting%20started/03%20Hello%20Window/)。
  
-####头文件
+#### 头文件
 先包含头文件。我们使用GLEW的静态链接库，所以定义了宏GLEW_STATIC。
 （静态链接库就是.lib文件，编译时会把库中的代码合并到可执行文件里。动态链接库是指一个库通过.dll或.so的方式存在，它的代码与你的可执行文件是分离的。发布时必须带上这些dll。）
 
@@ -49,7 +49,7 @@ const GLuint WIDTH = 800, HEIGHT = 600;
 GLFWwindow* window;
 {% endhighlight %}
 
-####初始化GLFW
+#### 初始化GLFW
   接下来我们定义一个函数，执行初始化GLFW的操作：
   
 {% highlight C++ %}
@@ -84,7 +84,7 @@ int Init_GLFW()
 
 先调glfwInit初始化，然后一堆glfwWindowHint函数进行配置。然后创建了一个窗口对象GLFWwindow，这个窗口对象中具有和窗口相关的许多数据，而且会被GLFW的其他函数频繁地用到。glfwMakeContextCurrent通知GLFW给我们的窗口在当前的线程中创建我们等待已久的OpenGL上下文。
  
-####初始化GLEW
+#### 初始化GLEW
 再来个函数，初始化GLEW：
 
 {% highlight C++ %}
@@ -111,7 +111,7 @@ OpenGL使用glViewport定义的位置和宽高进行位置坐标的转换，将O
 
 main函数里先调用这俩函数。
 
-####循环
+#### 循环
 我们不希望窗口只绘制一个图像后就关闭。可以在程序中添加一个while循环，这样程序就能在我们让GLFW退出前保持运行了。
 
 {% highlight C++ %}
@@ -135,7 +135,7 @@ return 0;
 
 这时候运行就会有个窗口了。。。没有的话去看前面介绍的原网站。。。
  
-####输入
+#### 输入
 GLFW中的键盘、鼠标等控制是通过回调函数，就是函数指针，我们注册好后，在事件触发后会调用该函数。跟C#委托和事件差不多。前面GLFW初始化时我们已经过一个键盘回调函数，它具体如下：
 
 {% highlight C++ %}
@@ -153,7 +153,7 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
 }    
 {% endhighlight %}
 
-####渲染
+#### 渲染
 我们要把所有的渲染操作放到循环中，因为我们想让这些渲染操作在每次循环迭代的时候都能被执行。
 为了测试，我们让屏幕清空为一种颜色。可以通过调用glClear函数来清空屏幕缓冲区的颜色.
 

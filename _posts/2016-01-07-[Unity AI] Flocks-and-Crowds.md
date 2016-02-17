@@ -45,7 +45,7 @@ Flocks and Crowds，这是游戏开发中一类非常有用的算法。Flocks主
 UnityFlock 表示独立的物体，这里只用简单的方块来表示，你也可以换成鸟的模型之类的。
 UnityFlockController 是它们的头领，它会随机更新移动位置，而其他物体会跟着它移动。
 
-#### 模仿个体行为
+####  模仿个体行为
 下面我们来实现boid的行为，创建一个UnityFlock.cs文件，用来控制每个个体的行为。
 
 首先定义用到的属性：
@@ -133,7 +133,7 @@ IEnumerator UpdateRandom ()
 
 接下来是update()函数，分别实现三个原则，计算速度，并应用速度进行位移和旋转。
 
-#### 实现控制器
+####  实现控制器
 控制器就是leader，它的作用就是随机移动，并保存所有群体个体数组。
 
 这里就不贴代码了，代码详情请查看 [github 项目源码](https://github.com/byfine/Unity-AI---Flocks-and-Crowds)，里面有详细注释。

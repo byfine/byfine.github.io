@@ -8,7 +8,7 @@ tags: [OpenGL]
 
 我们前面已经把整个场景渲染到了一个单独的纹理上，我们可以创建一些有趣的效果，只要简单操纵纹理数据就能做到。这部分，我们展示一些常用的后处理特效，以及怎样添加一些创造性去创建出你自己的特效。
 
-##反相（Inversion）：
+## 反相（Inversion）：
 我们已经取得了渲染输出的每个颜色，所以在片段着色器里返回这些颜色的反色并不难。我们得到屏幕纹理的颜色，然后用1.0减去它：
 
     void main()
@@ -18,7 +18,7 @@ tags: [OpenGL]
 
 ![反相效果]({{ site.url }}/images/post/2015-10-25/OpenGL Post 1.png)
 
-##灰度（Grayscale）：
+## 灰度（Grayscale）：
 另一个有意思的效果是移除所有除了黑白灰以外的颜色作用，使整个图像成为黑白的。实现它的简单的方式是获得所有颜色元素，然后将它们平均化（因为当RGB值是相等时，就是灰度图）：
 
     void main()
@@ -39,7 +39,7 @@ tags: [OpenGL]
 
 ![灰度效果]({{ site.url }}/images/post/2015-10-25/OpenGL Post 2.png)
 
-##Kernel effects:
+## Kernel effects:
 在单独纹理图像上进行后处理的另一个好处是我们可以从纹理的其他部分进行采样。比如我们可以从当前纹理坐标的周围采样多个纹理值。创造性地把它们结合起来就能创造出有趣的效果了。
 
 kernel是一个长得有点像一个小矩阵的数值数组，它中间的值中心可以映射到一个像素上，这个像素和这个像素周围的值再乘以kernel，最后再把结果相加就能得到一个值。所以，我们基本上就是给当前纹理坐标加上一个它四周的偏移量，然后基于kernel把它们结合起来。下面是一个kernel的例子：
@@ -90,7 +90,7 @@ kernel对于后处理来说非常管用，因为用起来简单，网上能找�
 
 ![kernel 锐化效果]({{ site.url }}/images/post/2015-10-25/OpenGL Post 4.png)
 
-##Blur：
+## Blur：
 创建模糊效果的kernel定义如下：
 
 ![模糊效果 kernel]({{ site.url }}/images/post/2015-10-25/OpenGL Post 5.png)
@@ -109,7 +109,7 @@ kernel对于后处理来说非常管用，因为用起来简单，网上能找�
 
 ![kernel 模糊效果]({{ site.url }}/images/post/2015-10-25/OpenGL Post 6.png)
 
-##边检测：
+## 边检测：
 
 ![边检测 kernel]({{ site.url }}/images/post/2015-10-25/OpenGL Post 7.png)
 

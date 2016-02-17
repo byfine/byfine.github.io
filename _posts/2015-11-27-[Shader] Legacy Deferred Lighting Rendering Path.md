@@ -6,28 +6,28 @@ modified: 2015-11-27
 tags: [Shader, Unity3D]
 ---
 
-###注意
+### 注意
 
 1. Deferred Lighting在Unity5.0后被认为是遗留功能，因为它不支持一些渲染特性（比如Standard shader, reflection probes）。新的项目推荐使用Deferred Shading渲染通道代替。
 
 2. 当相机是Orthographic投影，并不支持Deferred模式。会被处理为Forward rendering模式。
 
-###预览
+### 预览
 当时用Deferred Lighting，影响物体的光源没有数量限制。所有灯光都是逐像素计算，意味着都可以正确的与法线贴图交互等等。另外所有灯光都可以有cookies和阴影。
 
 Deferred lighting的优势是处理消耗和灯光照亮的像素数成正比。这只与灯光体积有关而与它照到的物体数量无关。因此保持较小的光体积可以提高性能。因为它是逐像素计算光照，所以不像顶点着色多边形明显，不真实。
 
 但缺点是，deferred shading并不真正支持抗锯齿，也不能处理半透明物体（这是在forward rendering中处理）。也不支持Mesh Renderer的Receive Shadows标志，而且只能使用4个culling masks。
 
-###需求
+### 需求
 需要Shader Model 3.0及以上，支持Depth render textures和two-sided stencil buffers，2004年后的大部分的pc都支持。移动平台上，所有兼容OpenGL ES 3.0的GPU都支持deferred lighting。
 
-###性能考量
+### 性能考量
 灯光的渲染开销与灯光照射的像素数有关而与场景的复杂度无关。所以小的点光或聚光开销很少，而如果它们被场景物体全部或部分挡住，开销会更少。
 
 当然，使用阴影的灯光更加消耗性能。在deferred lighting中，对每个阴影投射灯光，阴影投射的物体仍需要被渲染一次或多次。此外，应用了阴影的灯光shader拥有更多渲染开销。
 
-###实现细节
+### 实现细节
 当时用deferred lighting，渲染过程发生在三个通道：
 
 - Bass pass：渲染生成屏幕空间缓冲信息：depth, normals, 和specular power.

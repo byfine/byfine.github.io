@@ -11,10 +11,10 @@ https://code.visualstudio.com/docs/editor/codebasics
 VS Code 是微软推出的跨平台编辑器。它采用常见的UI布局，左侧是explorer 显示你打开的文件和文件夹，右侧是编辑窗口。
 另外还有需要多额外的特性。
 
-##Files, Folders & Projects
+## Files, Folders & Projects
 VS Code 是基于文件和文件夹的，你可以直接打开一个文件或者文件夹。另外，VSCode可以读取许多工具和平台定义的项目文件。如果你打开的文件夹有这些项目文件比如 project.json 或是 Visual Studio 的项目文件，它都会自动读取它们并提供更多功能，比如智能提示等。
 
-##基本布局
+## 基本布局
 VS Code 的 UI 被划分为四个区域：
 
 - Editor 是你编辑文件的地方，可以最多并排打开三个窗口。
@@ -24,7 +24,7 @@ VS Code 的 UI 被划分为四个区域：
 
 注：你可以把Side Bar移到右边（View->Move Sidebar），或者用Ctrl+B切换显示关闭。
 
-##并排编辑
+## 并排编辑
 你可以同时打开三个editor进行编辑。有多种方式打开一个新的editor：
 
 - Ctrl并点击Explorer中的文件。
@@ -33,7 +33,7 @@ VS Code 的 UI 被划分为四个区域：
 
 当你有多个editor打开，可以使用Ctrl加数字1，2，3来切换不同窗口。
 
-##Explorer
+## Explorer
 用来浏览、打开和管理项目所有文件和文件夹。
 一旦打开一个文件夹，其内容就会显示在Explorer中。你可以对它们进行许多操作：
 
@@ -47,7 +47,7 @@ VS Code 的 UI 被划分为四个区域：
 
 注：使用Ctrl+P可以快速搜索并打开文件。
 
-##Working Files
+## Working Files
 在Explorer 顶部有一个 Working Files 标签。这是激活文件的列表。一些情况下，文件会出现在这个列表：
 
 - 修改一个文件。
@@ -60,12 +60,12 @@ VS Code 的 UI 被划分为四个区域：
 
 注：你可在设置中配置 Working Files 的样式，比如explorer.workingFiles.maxVisible设置列表最大数量，explorer.workingFiles.dynamicHeight 设置是否自动设置高度。
 
-##Save/Auto Save
+## Save/Auto Save
 默认情况，VSCode需要你手动保存文件，使用Ctrl+S。
 当然，你也可以使用自动保存。
 在命令板可以设置，按F1，然后输入auto设置。也可以在File菜单选项设置。
 
-##搜索文件
+## 搜索文件
 使用Ctrl+Shift+F可以快速搜索当前打开文件。
 同时支持正则表达式搜索。
 
@@ -82,7 +82,7 @@ VS Code 的 UI 被划分为四个区域：
 - {}  群组条件 （比如  {**/*.html,**/*.txt}，搜索所有html和txt文件）
 - []  指示字符范围（比如 example.[0-9] 匹配 example.0, example.1, …）
 
-##Command Palette
+## Command Palette
 F1可以打开命令面板。你可以获取所有VSCode的功能。
 这个面板UI可以实现许多功能，下面是另外一些有用的快捷键：
 
@@ -94,15 +94,15 @@ F1可以打开命令面板。你可以获取所有VSCode的功能。
 
 输入?查看可以使用的指令。
 
-##快速文件导航
+## 快速文件导航
 按住Ctrl 再按Tab 会显示一个所有打开过的文件列表，使用Tab切换文件，当选到某个要打开的文件，松开Ctrl就可以打开它。
 另外，也可以使用Alt+Left 和 Alt+Right切换文件和编辑位置。
 
-##文件编码支持
+## 文件编码支持
 在 User Settings 或 Workspace Settings 的 files.encoding，可以分别设置全局和当前工作空间的编码格式。
 在状态栏可以查看当前编码格式，点击可以重新保存为新的格式。
 
-##命令行启动
+## 命令行启动
 可以使用命令行启动VSCode（前提是已经加入PATH），只需输入：
 
     Code .
@@ -111,11 +111,11 @@ F1可以打开命令面板。你可以获取所有VSCode的功能。
 
     code index.html style.css readme.md
 
-##设置
+## 设置
 有两种设置：User和Workspace
 User是全局的，Workspace只保存在当前工作空间，会重写User设置。
 
-##编辑器进阶
+## 编辑器进阶
 
 - Ctrl+Shift+] 跳转到匹配的括号。
 - 选择 和 多光标:
@@ -129,7 +129,7 @@ User是全局的，Workspace只保存在当前工作空间，会重写User设置
 - Ctrl+Shift+M显示所有错误。
 
 
-###连接Unity 和 VS Code
+### 连接Unity 和 VS Code
 最简单的方法是利用Unity plug-in。
 
 1. 下载插件
@@ -147,7 +147,7 @@ User是全局的，Workspace只保存在当前工作空间，会重写User设置
 
   现在在Assets菜单，可以看到Open C# Project In Code选项。这会在VSCode打开整个项目根目录。
 
-##调试Unity
+## 调试Unity
 目前VSCode自带调试只支持通过 Mono，所以只能在Mac OS X平台使用。
 不过已经有网友提供了方法：http://forum.unity3d.com/threads/vs-code-unity-debugger-extension-preview.369775/
 	

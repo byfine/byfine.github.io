@@ -22,7 +22,7 @@ shader程序使用Cg/HLSL语言编写，为嵌入在pass内的代码片段，一
         // ... the rest of pass setup ...
     }
 
-###Cg/HLSL片段
+### Cg/HLSL片段
 
 Cg/HLSL片段写在 CGPROGRAM 和 ENDCG 之间。   
 在片段开始可以通过提供的 #pragma 命令声明编译指令。Unity认可的指令有以下这些：
@@ -43,13 +43,13 @@ Cg/HLSL片段写在 CGPROGRAM 和 ENDCG 之间。
 
 每个代码片段至少要包含一个顶点程序和一个片段程序。因此 \#pragma vertex 和 \#pragma fragment 指令是必须的。
 
-###顶点和片断程序
+### 顶点和片断程序
 当你使用顶点和片断程序(即可编程管线)时，显卡的大部分硬编码(固定功能管线)功能将关闭。
 例如，使用一个顶点程序完全可以做到关闭标准的3D变换，灯光和纹理坐标的功能。类似的，使用一个片段程序可以替换任何纹理混合模式，而这些纹理混合模式都在在SetTexture命令中有定义，因此SetTexture命令是不需要的。
 
 编写顶点/片断程序需要对3D转换、照明和坐标空间有透彻的了解。因为你要自己写出像OpenGL实现的固定功能一样的效果。另外，还可以实现内置功能以外自己需要的功能。
 
-###在ShaderLab中使用Cg/HLSL
+### 在ShaderLab中使用Cg/HLSL
 ShaderLab中的shader通常使用Cg/HLSL编写。Cg和DX9的HLSL几乎一样，所以可以交换使用。
 
 Shader代码写在“Cg/HLSL代码段“中。代码段会被编译为低级着色器集合，并且最终的着色器是包含在你的游戏数据文件内的。当你在Project View选中一个shader文件，Inspetor窗口会有个按钮可以查看编译后的着色器代码，可以帮助调试。Unity会自动编译Cg片段到相关平台。因为Cg/HLSL代码是通过Unity editor编译的，所以不能在运行时创建shader。
@@ -118,9 +118,9 @@ UnityCg.cginc文件包含了常用的声明，所以可以使着色器简短。�
     
 到此，我们就分析完了这个着色器。虽然只是个简单的着色器，但很方便查看网格的法线。
 
-###在Cg/HLSL代码中使用shader属性
+### 在Cg/HLSL代码中使用shader属性
 
-####例子介绍
+#### 例子介绍
 在Cg代码中使用着色器属性(shader properties)，你必须定义一个变量，变量的的名字和类型要与它相匹配。
 这里有个完整的shader例子，用来显示通过颜色调整的贴图：
 
@@ -174,7 +174,7 @@ UnityCg.cginc文件包含了常用的声明，所以可以使着色器简短。�
 
 这里的顶点程序使用UnityCG.cginc里的TRANSFORM_TEX，用来保证纹理(texture)正确的缩放和偏移。片断(fragment)程序只是对纹理(texture)进行采样然后乘以颜色值。
 
-####属性类型：
+#### 属性类型：
 
 对于下面的shader属性：
 
@@ -202,9 +202,9 @@ ShaderLab的映射到Cg/HLSL的属性类型：
 - Range 和 Float 属性映射为 float, half 或 fixed 变量。
 - Texture 属性。对于2Dtextures 为 sampler2D; Cubemaps 为 samplerCUBE; 3D textures 为 sampler3D.
 
-####特殊的贴图属性：
+#### 特殊的贴图属性：
 
-#####Texture tiling & offset：
+##### Texture tiling & offset：
 
 对于贴图材质通常有Tiling 和 Offset数据块。在shader中，这个信息是通过一个名为{TextureName}_ST的float4属性传递： 
    
@@ -212,13 +212,13 @@ x 是 X tiling； y 是 Y tiling； z 是 X offset； w 是 Y offset。
 
 比如，一个贴图名为 _MainTex，那么它的tilling信息为一个_MainTex_ST的vector。
 
-#####Texture size：
+##### Texture size：
 
 {TextureName}_TexelSize - 一个float4属性包含了贴图的size信息：
 
 x 是 1.0/width； y 是 1.0/height； z 是 width； w 是 height
 
-#####Texture HDR parameters：
+##### Texture HDR parameters：
 {TextureName}_HDR - 一个float4属性，包含了怎样解码潜在的HDR贴图信息。
 
 

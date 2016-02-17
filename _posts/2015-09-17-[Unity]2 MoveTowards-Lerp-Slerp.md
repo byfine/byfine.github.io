@@ -8,7 +8,7 @@ tags: [Unity3D]
 
 MoveTowards、Lerp、Slerp这三个函数相信大家经常遇到，这些都是在做一些过渡操作时需要用到的，那么它们间的具体差别是什么呢？其实要搞清楚它们的区别，只要仔细看官方说明，明白它们的具体用途是什么。
 
-##MoveTowards
+## MoveTowards
 
 Mathf、Vector2、Vector3等许多类都有这个方法，意思都差不多。以Vector3为例，函数原型为：
 
@@ -27,7 +27,7 @@ maxDistanceDelta就是每次移动的最大长度。
     Current = Vector3.MoveTowards(Current, Target, moveMax * Time.deltaTime);
 
 
-##Lerp
+## Lerp
 
 Lerp表示线性插值，很多地方都用到了它。这里仍以Vector3为例，函数原型是：
 
@@ -71,18 +71,18 @@ Lerp表示线性插值，很多地方都用到了它。这里仍以Vector3为例
     }
 
 
-##Slerp 
+## Slerp 
 
 球形插值在Vector3、Quaternion等类都有使用，一般多在Quaternion的旋转操作时使用。
 
-####对于Vector3：
+#### 对于Vector3：
 
     public static Vector3 Slerp(Vector3 a, Vector3 b, float t);
 
 这里球形插值与线性插值不同的地方在于，它将Vectors视为**方向**而不再是点。返回的向量方向，它的角度是根据a和b的角度插值，而它的长度是根据a和b的长度插值。
 可以用其模拟太阳的升降变化等操作。
 
-####对于Quaternion：
+#### 对于Quaternion：
 
     public static Quaternion Slerp(Quaternion a, Quaternion b, float t);
 
@@ -97,5 +97,5 @@ Quaternion的Lerp与Slerp结果都是一样的，Lerp的效率会比Slerp高些�
 红点是起点，绿点是终点。蓝色线是Lerp的轨迹，白线是Slerp的轨迹。
 
 
-##注意：
+## 注意：
 对于插值（Slerp和Lerp）运算中的t，要明白它代表的是百分比，直接对齐赋值时间如Time.deltaTime是没意义的，因为如果t为1的话，永远都不会到达目标值。

@@ -11,7 +11,7 @@ Ramp Texture 是一种控制漫反射的方法。
 
 ![]({{ site.url }}/images/post/Shader/Ramp-Texutre-1.png)
 
-###一般的漫反射光照模型
+### 一般的漫反射光照模型
 
 这是一个半兰伯特光照模型：
 

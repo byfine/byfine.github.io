@@ -6,7 +6,7 @@ modified: 2015-12-23
 tags: [Unity3D, AssetBundles]
 ---
 
-###下载 AssetBundles
+### 下载 AssetBundles
 有两种方法下载：
 
 1. 非缓存：通过构造一个[WWW](http://docs.unity3d.com/ScriptReference/WWW.html)对象完成。AssetBundles不会缓存到本地存储设备上的Unity缓存文件夹。
@@ -94,7 +94,7 @@ public class CachingLoadExample : MonoBehaviour {
 
 当你获取 .assetBundle 资源，下载的数据被提取并且 AssetBundle 对象会被创建。这时，你就可以加载bundle中包含的对象。LoadFromCacheOrDownload 第二个参数指定了要下载的AssetBundle的版本。如果缓存中没有或者版本比需要的低，就会下载AssetBundle。否则就直接从缓存中获取AssetBundle。
 
-####Editor环境下加载
+#### Editor环境下加载
 Editor下加载AssetBundles比较麻烦，因为有资源更新时，还要重新打包AssetBundles。这时候通过 Resources.LoadAssetAtPath 直接获取Asset比较方便：
  
 {% highlight c# %} 
@@ -142,7 +142,7 @@ class LoadAssetFromAssetBundle : MonoBehaviour
 {% endhighlight %}
 
 
-###加载和卸载AssetBundle中的对象
+### 加载和卸载AssetBundle中的对象
 
 当从下载的数据创建了AssetBundle对象后，有三种方法加载AssetBundle中的资源：
 
@@ -155,7 +155,7 @@ class LoadAssetFromAssetBundle : MonoBehaviour
 
 要卸载资源，需要使用 AssetBundle.Unload。这个方法有一个布尔参数，以指示是卸载所有数据（包括以加载的数据），还是只卸载下载的压缩文件。如果你正在使用来自AssetBundle的一些资源，而你又想释放一些内存，可以传递参数false来卸载压缩的资源文件。而如果你不再使用AssetBundle的任何资源，可以传递true来彻底卸载已经加载的资源。
 
-####异步加载AssetBundle的资源
+#### 异步加载AssetBundle的资源
 
 {% highlight c# %} 
 using UnityEngine;
@@ -188,7 +188,7 @@ IEnumerator Start () {
 }
 {% endhighlight %}
 
-###记录加载的AssetBundle
+### 记录加载的AssetBundle
 对于一个AssetBundle，Unity只允许同一时间加载一个实例。这意味着如果一个AssetBundle已经加载过了，且没有卸载，你就不能再用WWW获取它了。即当你试图使用如下方式获取一个已经加载过的AssetBundle：
 
      AssetBundle bundle = www.assetBundle;

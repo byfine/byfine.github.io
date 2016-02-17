@@ -6,7 +6,7 @@ modified: 2015-10-21
 tags: [OpenGL]
 ---
 
-##模板缓存：
+## 模板缓存：
 当片段着色器处理完片段之后，模板测试(stencil test) 就开始执行了，它能丢弃一些片段。模板测试基于一个缓冲，叫做模板缓冲(stencil buffer)，我们被允许在渲染时更新它来获取有意思的效果。
 模板缓冲的用途之一，就是将绘图范围限制在屏幕的特定区域，用来进行复杂的掩模(masking)操作。一个复杂的形状可以存储在模板缓存里，然后绘制子序列操作可以使用模板缓存里的内容来决定是否更新象素。
 
@@ -24,7 +24,7 @@ OpenGL在模板缓冲区中为每个像素保存了一个模板值，当像素�
 
 使用模板缓冲我们可以基于场景中已经绘制的片段，来决定是否丢弃特定的片段。
 
-##启用模板测试：
+## 启用模板测试：
 使用GL_STENCIL_TEST来开启模板测试：
 glEnable(GL_STENCIL_TEST);
 
@@ -33,7 +33,7 @@ glClear(GL_STENCIL_BUFFER_BIT);
 
 同时，glStencilMask允许我们给模板值设置一个位遮罩（bitmask），它与模板值进行按位与（and）决定缓冲是否可写。默认设置的位遮罩都是1，这样就不会影响输出，但是如果我们设置为0x00，所有写入深度缓冲最后都是0，此时模板缓冲不可写，使用的是只读的模板缓存，这与深度缓冲的glDepthMask(GL_FALSE)很类似。
 
-##模板函数（stencil functions）：
+## 模板函数（stencil functions）：
 我们有几个不同控制权，决定何时模板测试通过或失败以及它怎样影响模板缓冲。一共有两种函数可供我们使用去配置模板测试：glStencilFunc 和 glStencilOp。
 
     void glStencilFunc(GLenum func, GLint ref, GLuint mask)
@@ -64,7 +64,7 @@ glStencilOp函数默认设置为 (GL_KEEP, GL_KEEP, GL_KEEP) ，所以任何测�
 
 使用glStencilFunc和glStencilOp，我们就可以指定在什么时候以及我们打算怎么样去更新模板缓冲了，我们也可以指定何时让测试通过或不通过。什么时候片段会被抛弃。
 
-##绘制物体轮廓
+## 绘制物体轮廓
 我们展示一个用模板测试实现的一个特别的和有用的功能，叫做物体轮廓（object outlining）。它能够给每个（或一个）物体创建一个有颜色的边，步骤如下：
 
 1. 清空所有模板缓存值为0。

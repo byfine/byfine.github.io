@@ -5,7 +5,7 @@ description: "Fixed function shader 简介"
 modified: 2015-11-20
 tags: [Shader]
 ---
-##一个顶点光照着色器的例子
+## 一个顶点光照着色器的例子
 
     Shader "Custom/FF1" {
         Properties {
@@ -46,7 +46,7 @@ tags: [Shader]
 
 再下面是一些操作命令。
 
-##属性解释
+## 属性解释
 
 - Color    
 物体的纯色
@@ -66,7 +66,7 @@ tags: [Shader]
 - SeparateSpecular On | Off  
 控制顶点光照的高光开关
 
-##Combine texture 
+## Combine texture 
 SetTexture 读入材质内容，Combine将primary(前面光照计算的颜色)与材质纹理合并，DOUBLE表示乘以2以让颜色更亮。
 
 SetTexture 可以不只有一个（支持多少个由硬件决定，一般两个就够了）。将上面例子改为

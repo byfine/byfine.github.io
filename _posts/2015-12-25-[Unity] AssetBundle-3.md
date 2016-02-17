@@ -6,7 +6,7 @@ modified: 2015-12-25
 tags: [Unity3D, AssetBundles]
 ---
 
-###在AssetBundle中存储和加载二进制数据
+### 在AssetBundle中存储和加载二进制数据
 第一步是使用“.bytes”扩展名保存你的二进制数据。Unity会将这个文件视为[TextAsset](http://docs.unity3d.com/ScriptReference/TextAsset.html)。一旦你下载了这个AssetBundle，并且加载了 TextAsset 对象，你就可以使用TextAsset的 .bytes 属性来获取二进制数据。
 
 {% highlight c# %} 
@@ -29,7 +29,7 @@ IEnumerator Start () {
 }
 {% endhighlight %}
 
-###内容保护
+### 内容保护
 虽然使用加密技术可以确保你的Asset在传输时的安全，但一旦用户掌握了数据，他们总有办法获取到数据的内容。比如有工具可以获取发送到GPU的3D模型和贴图。因此只要用户愿意，你的资源总是会被提取到的。
 
 当然，你还是可以使用自己的加密方法到AssetBundle文件。
@@ -118,7 +118,7 @@ IEnumerator Start () {
 }
 {% endhighlight %}
 
-###在AssetBundles中包含脚本
+### 在AssetBundles中包含脚本
 AssetBundle可以将脚本保存为TextAsset，但这样就不是可执行代码了。如果你想包含可执行代码，就需要预编译脚本并使用 Mono 反射类（反射在AOT编译平台无法使用，比如iOS）。
 
 注意：从AssetBundle加载代码在 Windows Store Apps 和 Windows Phone 是不支持的。
