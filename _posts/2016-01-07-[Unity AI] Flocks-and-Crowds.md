@@ -8,7 +8,7 @@ tags: [Unity3D, AI]
 
 Flocks and Crowds，这是游戏开发中一类非常有用的算法。Flocks主要指模拟非玩家角色的群体行动，如蜂群、鸟群、鱼群等；Crowds指模拟一群人物的行动，如RTS游戏中，选中一群士兵，让他们移动到某一处。
 
-###群聚的概念
+### 群聚的概念
 
 群聚算法最早由 Craig Reynolds 在八十年代提出。
 
@@ -37,7 +37,7 @@ Flocks and Crowds，这是游戏开发中一类非常有用的算法。Flocks主
     
 从这三条可以得知，每个单位都必须有运用转向力行进的能力。此外，每个单位都必须得知其局部周围的情况，邻近单位的位置、它们的方向、与自身的距离等。
 
-###Unity中 Flocking 示例
+### Unity中 Flocking 示例
 接下来我们在Unity中实现一个简单的flocking示例项目。主要有两个组件：独立的boid物体脚本，和一个控制脚本来维护和领导群体。（**Boid**是 Craig Reynolds 提出的术语，指像鸟一样的物体，我们用这个术语来代表每个个体。）
 
 ![]({{ site.url }}/images/post/Unity-AI/Flock-4.png)
@@ -45,7 +45,7 @@ Flocks and Crowds，这是游戏开发中一类非常有用的算法。Flocks主
 UnityFlock 表示独立的物体，这里只用简单的方块来表示，你也可以换成鸟的模型之类的。
 UnityFlockController 是它们的头领，它会随机更新移动位置，而其他物体会跟着它移动。
 
-####模仿个体行为
+#### 模仿个体行为
 下面我们来实现boid的行为，创建一个UnityFlock.cs文件，用来控制每个个体的行为。
 
 首先定义用到的属性：
@@ -133,12 +133,12 @@ IEnumerator UpdateRandom ()
 
 接下来是update()函数，分别实现三个原则，计算速度，并应用速度进行位移和旋转。
 
-####实现控制器
+#### 实现控制器
 控制器就是leader，它的作用就是随机移动，并保存所有群体个体数组。
 
 这里就不贴代码了，代码详情请查看 [github 项目源码](https://github.com/byfine/Unity-AI---Flocks-and-Crowds)，里面有详细注释。
 
-###另一种Flocking算法实现方式
+### 另一种Flocking算法实现方式
 这是一种更简单的实现flocking算法的方法。我们使用Unity中的rigidbody到我们的boid上，通过刚体物理，我们可以简化运动控制。为了避免boid互相重叠，可以添加球形碰撞器。
 
 和上面例子一样，还是需要两部分：个体和控制器。所有个体跟随控制器运动。
