@@ -2,7 +2,7 @@
 layout: post
 title: AI：Flocks and Crowds：群聚
 description: "Flocks and Crowds：群聚及人群算法"
-modified: 2016-01-07
+modified: 2016-01-15
 tags: [Unity3D, AI]
 ---
 
@@ -149,3 +149,14 @@ IEnumerator UpdateRandom ()
 代码详情请查看 [github 项目源码](https://github.com/byfine/Unity-AI---Flocks-and-Crowds)，里面有详细注释。
 
 如果需要运动的更具真实性，可以随机改变 群聚度、分离度等属性的值。
+
+
+### 使用Crowds（人群）
+通常Crowds模拟的是一群人在一个区域移动，并且避免互相碰撞或躲避环境障碍。通常在RTS游戏中使用较多。
+
+#### 实现一个简单的 Crowd模拟
+我们主要使用Unity的Navmesh来实现，这非常高效简单。
+
+人群中的每个物体都附加 NavAgent，设置它们的目的地，这样在它们驯鹿导航是，会自然互相避让，并同时向目标行进。
+
+具体详情请查看 [github 项目源码](https://github.com/byfine/Unity-AI---Flocks-and-Crowds)。
