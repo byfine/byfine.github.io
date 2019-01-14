@@ -1,6 +1,9 @@
 # Menu navigation links
-- title: About
-  url: /about/
+- title: My Games (App Store)
+  url: https://itunes.apple.com/cn/developer/fan-bai/id1336114159?mt=8
+  
+- title: My Games (Google)
+  url: https://play.google.com/store/apps/developer?id=Coordream
   
 - title: Theme Link
   url: https://github.com/mmistakes/hpstr-jekyll-theme
