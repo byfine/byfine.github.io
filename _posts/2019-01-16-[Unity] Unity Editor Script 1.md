@@ -326,7 +326,7 @@ public class ScriptEditorTest6 :Editor
 
 使用 EditorWindow.GetWindow() 可以打开窗口。
 
-{% highlight %} 
+{% highlight c# %}  
 [MenuItem("Window/My Window")]
 public static void ShowWindow()
 {
@@ -345,7 +345,7 @@ public static void ShowWindow()
 ##### 在自定义窗口中显示 Preview
 有时想在自定义窗口显示预览窗口，查看模型等资源，可以通过 Editor.OnPreviewGUI 实现。
 
-{% highlight %} 
+{% highlight c# %}  
 using UnityEngine;
 using UnityEditor;
 
