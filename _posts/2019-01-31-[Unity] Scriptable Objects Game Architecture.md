@@ -14,7 +14,7 @@ ScriptableObject 是一个可序列化的Unity类，能够让你在脚本实例�
 使用Editor时，可在编辑时和运行时将数据保存到 ScriptableObjects，因为 ScriptableObjects 使用 Editor命名空间 和 Editor脚本。但是，在已发布的构建中，不能向 Scriptable Objects 保存数据，但可以在运行期间读取其中保存的数据。编辑器工具保存到 ScripableObjects 资产的数据会写入磁盘，因此在会话之间是持久的。
 
 ### 使用 ScriptableObject
-要使用 ScriptableObject，需要先在Asset目录下创建一个脚本，然后让其继承 ScriptableObject类。 可以使用[CreateAssetMenu]() 属性来快速创建自定义资源，比如：
+要使用 ScriptableObject，需要先在Asset目录下创建一个脚本，然后让其继承 ScriptableObject类。 可以使用[CreateAssetMenu](https://docs.unity3d.com/ScriptReference/CreateAssetMenuAttribute.html) 属性来快速创建自定义资源，比如：
 
 {% highlight c# %}  
 using UnityEngine;
@@ -95,7 +95,7 @@ Singleton 相信大家都不陌生了，应该是最常用也最简单的一种�
 #### ScriptableObject 变量
 
 先考虑一个例子，现在有一个 Enemy Prefab，它需要知道自身的移动速度，你可以直接在Prefab上修改其 MoveSpeed 属性，但是假如我们有20个 Enemy Prefab，每个都有一些区别但它们移动速度是一样的，那你要为每个都赋值一遍。  
-一个解决方法是通过一个 Singleton来获取： ``EnemyManager.Instance.MoveSpeed``。  
+一个解决方法是通过一个 Singleton来获取： EnemyManager.Instance.MoveSpeed 。  
 但这个方法有上述我们说过的缺点： 这是硬连接；这个属性完全依赖于加载的 Manager。比如我们要测试敌人的速度，就要完全从头运行场景，等待 Manager 加载配置完成，然后拖入 Prefab 测试，而不能直接在一个测试场景快速的拖入Prefab直接测试。   
 这时候你可能会想到使用 ScriptableObject，创建一个 EnemyConfig 的 ScriptableObject，其中保存敌人的配置数据，20个Prefab都可以获取这个引用读取数据。但这也有一些问题： 会将敌人各部分属性都混到一起；限制扩展性和模块化。比如这时候有一个敌人是范围攻击，它需要 MinFireRange 和 MaxFireRange 两个属性，这是两个新属性，加入EnemyConfig的话会产生冗余，因为其他敌人并用不到，不加入的话又打破了模块化和扩展性。
 
